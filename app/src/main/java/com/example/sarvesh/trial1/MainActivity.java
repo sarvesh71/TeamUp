@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         Result = (TextView)findViewById(R.id.ResultField);
         Heading = (TextView)findViewById(R.id.textView);
 
-       // Result.setText("Hello!");
+       Result.setText("   Hello!");
 
         Submit = (Button)findViewById(R.id.SubmitBtn);
 
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
             {
                 try {
                     if(v == Submit){
-                   // Result.setText("wait!");
+                        Result.setText("   Please wait!");
                     TakeInput();
                     }}
                 catch(Exception e){
@@ -96,6 +96,14 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         );
+
+        TeamName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TeamName.setText("");
+
+            }
+        });
 
     }
 
@@ -121,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String s) {
                         Toast.makeText(MainActivity.this, s, Toast.LENGTH_LONG).show();
+                        Result.setText("Connection Successfull");
                     }
                 },
                 new Response.ErrorListener() {

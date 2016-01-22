@@ -13,9 +13,10 @@ import android.widget.ImageView;
  */
 public class SolashScreen extends Activity {
 
-    protected void OnCreate(Bundle savedInstanceState){
+    @Override
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.splash);
+        setContentView(R.layout.sarvesh);
 
         final ImageView iv = (ImageView) findViewById(R.id.imageView);
         final Animation an = AnimationUtils.loadAnimation(getBaseContext(), R.anim.rotate);
@@ -23,10 +24,10 @@ public class SolashScreen extends Activity {
        // final Animation an2 = AnimationUtils.loadAnimation(getBaseContext(), R.anim.abc_fade_out);
 
 
-        an.reset();
-        iv.clearAnimation();
+       //an.reset();
+        //iv.clearAnimation();
 
-        //iv.startAnimation(an);
+        iv.startAnimation(an);
         an.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -36,10 +37,10 @@ public class SolashScreen extends Activity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 //iv.startAnimation(an2);
+                finish();
 
                 Intent i = new Intent(getBaseContext(),MainActivity.class);
                 startActivity(i);
-                finish();
             }
 
             @Override
